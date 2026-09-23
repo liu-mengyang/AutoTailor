@@ -1,28 +1,4 @@
 import json
-from numbers import Real
-
-
-def _decode_base_accuracy(value):
-    """Decode current ``[accuracy]`` and legacy metric-list layouts."""
-    if (
-        isinstance(value, list)
-        and len(value) == 1
-        and isinstance(value[0], Real)
-        and not isinstance(value[0], bool)
-    ):
-        return float(value[0])
-    if (
-        isinstance(value, list)
-        and len(value) == 3
-        and isinstance(value[2], list)
-        and len(value[2]) == 1
-        and isinstance(value[2][0], Real)
-        and not isinstance(value[2][0], bool)
-    ):
-        return float(value[2][0])
-    raise ValueError(
-        "base_acc must be [accuracy] or legacy [[flops], [params], [accuracy]]"
-    )
 
 
 class SensitivityEstimator(object):
@@ -35,7 +11,7 @@ class SensitivityEstimator(object):
     def _load_weights(self, weights_path):
         weights_dict = json.load(open(weights_path))
         
-        self.base_acc = _decode_base_accuracy(weights_dict["base_acc"])
+        self.base_acc = weights_dict["base_acc"][0]
         if self.bottomup_mode:
             self.base_acc = self.miniacc
         weights = {}
@@ -103,9 +79,8 @@ class SensitivityEstimator(object):
                 for kk, vv in v.items():
                     pos = 0
                     new_weights[k][kk] = []
-                    num_stages = len(self.tailor.supercode[k][kk])
-                    max_v = max(self.tailor.block_vars[k][kk])
                     for block_var in self.tailor.block_vars[k][kk]:
+                        max_v = max(self.tailor.block_vars[k][kk])
                         for stage_i in range(num_stages):
                             num_blocks = len(self.tailor.supercode[k][kk][stage_i])
                             if num_blocks == 0:

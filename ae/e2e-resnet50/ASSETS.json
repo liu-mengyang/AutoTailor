@@ -1,0 +1,154 @@
+[
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0375/resnet50_0375_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0375/resnet50_0375_best.pth.tar",
+    "bytes": 126128565,
+    "sha256": "85f84f72d49a955f653b2303ec43b1100a9f271a0dc3a986eda329ce5f805e08"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0375/resnet50_0375_checkpoint.pt",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0375/resnet50_0375_checkpoint.pt",
+    "bytes": 42508266,
+    "sha256": "f281d1e1f52991390d431ef2f09cb322afa9a6eb6e60a22f4f39ae3904666092"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0750small/resnet50_0750_small_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0750small/resnet50_0750_small_best.pth.tar",
+    "bytes": 24241183,
+    "sha256": "bb95a38808a181c3e0a3e9f0fe4982bc3c1989ae9e12017b88da3327a489ccf4"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0750small/resnet50_0750_small_checkpoint.pt",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0750small/resnet50_0750_small_checkpoint.pt",
+    "bytes": 8497104,
+    "sha256": "51734af3688600bf887e536ed97f808bcaa60f9e7f6ad3a858b17feff7d3ee0f"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0250/resnet50_0250_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0250/resnet50_0250_best.pth.tar",
+    "bytes": 177679157,
+    "sha256": "d4beab0e25eb07031b49035f47cc604ac6c73b859015008af81943a89367f0a5"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0250/resnet50_0250_checkpoint.pt",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0250/resnet50_0250_checkpoint.pt",
+    "bytes": 59709866,
+    "sha256": "8b8f862d18c1381445cbc7e96c12f6681b22b365ed694a98e6d56abbfb3510d4"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0875small/resnet50_0875small_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0875small/resnet50_0875small_best.pth.tar",
+    "bytes": 7857784,
+    "sha256": "a638b6c353dec0e984bfb0c40fd3e11cc9a964842c144dc8796f3f8306db8f92"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0875small/resnet50_0875small_checkpoint.pt",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0875small/resnet50_0875small_checkpoint.pt",
+    "bytes": 3017439,
+    "sha256": "4eb0655c657ace1d9e8b702c31964c33421bae51c77ef3fc3746e6deff853131"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0500/resnet50_0500_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0500/resnet50_0500_best.pth.tar",
+    "bytes": 83373813,
+    "sha256": "4de1c58a527dd8dfd06e4923449c54d42fe6561698b3d5c0ec1bdeafc33c622c"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0500/resnet50_0500_checkpoint.pt",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0500/resnet50_0500_checkpoint.pt",
+    "bytes": 28239274,
+    "sha256": "9b83cfc55b68c0545b822ce4f0fd8fa357f460e0b430d80bfd61359d38b81f99"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0625small/resnet50_0625small_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0625small/resnet50_0625small_best.pth.tar",
+    "bytes": 49411000,
+    "sha256": "e4e33e52897016c45d866279338fa816f1ef9785df80229b63ea72c0fc609d49"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0625small/resnet50_0625small_checkpoint.pt",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0625small/resnet50_0625small_checkpoint.pt",
+    "bytes": 16903903,
+    "sha256": "a268a1a47037333cedff0ccf52d321a49b0990fb73fab27cef18231ae2829ce6"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0125/resnet50_0125_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0125/resnet50_0125_best.pth.tar",
+    "bytes": 238018037,
+    "sha256": "c1e4dbbecb0cf2b5f751cd5658ad6e484301c2b252aed9ee738731e65e3c04f4"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/projects/myTorch-Pruning/exp/resnet50_0125/resnet50_0125_checkpoint.pt",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/nestdnn/resnet50_0125/resnet50_0125_checkpoint.pt",
+    "bytes": 79840234,
+    "sha256": "c10ec12d21aa4485b89c1d9257116d63955dd8ba4b02f3dbf9155319fc828967"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/AutoTailor_trained_models/resnet50_fix/comp_phase1/resnet50_fix_best.pth.tar",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/autotailor/resnet50_fix_best.pth.tar",
+    "bytes": 307128261,
+    "sha256": "4131a5087560d43e876cc3aa02ab54f4a878bc7f7f9d231f14ec69b6829b978b"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/myAdaptivenet/weights/resnet1epoch59acc69.pth",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/adaptivenet/resnet1epoch59acc69.pth",
+    "bytes": 274971041,
+    "sha256": "1ff7bd22595ab93baec4cd855f97978c7bcf8a5b506d12d338ad5faa58fd5f8e"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/myAdaptivenet/weights/mbv2_100_1epoch44_best.pth",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/adaptivenet/mbv2_100_1epoch44_best.pth",
+    "bytes": 25950829,
+    "sha256": "be8e6a86aa94860dc1314ae7c9c9513dec8fffde6de98b252f919c4e41355d44"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/data/lmy/myAdaptivenet/weights/mbv2_100_25_5_1epoch87.pth",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/adaptivenet/mbv2_100_25_5_1epoch87.pth",
+    "bytes": 30582515,
+    "sha256": "654234405f9a3d3320e0ea73a6d5b183a2724f811fdc7091341d23e22fa55b65"
+  },
+  {
+    "source_host": "seuserver",
+    "source_path": "/home/lmy/projects/AutoTailor/models/onnx/timm_resnet50.a1_in1k.onnx",
+    "destination_host": "zlTarget-GPU",
+    "destination_path": "/home/lmy/AutoTailor-AE-assets/e2e-resnet50/autotailor/timm_resnet50.a1_in1k.onnx",
+    "bytes": 102486776,
+    "sha256": "d34f94b462582b3bb1d8dbd84ed3225ed38fb60e00c286b07b364c850f739c8e"
+  }
+]

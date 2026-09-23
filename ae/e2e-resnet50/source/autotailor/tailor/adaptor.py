@@ -46,10 +46,6 @@ class Adaptor(object):
             from autotailor.tailor.acc_predictors.flops_counter import FLOPsCounter as FLOPsAccPredictor
             accuracy_predictor = FLOPsAccPredictor(self.tailor)
         elif accuracy_metric == "sensitivity":
-            import json
-            from autotailor.tailor.acc_predictors.sensitivity_provenance import require_training_sensitivity
-            with open(trans_weight_path) as stream:
-                require_training_sensitivity(json.load(stream))
             from autotailor.tailor.acc_predictors.sensitivity_estimator import SensitivityEstimator
             accuracy_predictor = SensitivityEstimator(self.tailor, trans_weight_path)
         elif accuracy_metric == "mlp":

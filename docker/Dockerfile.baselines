@@ -1,0 +1,11 @@
+FROM python:3.10.19-slim-bookworm
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 ca-certificates git && rm -rf /var/lib/apt/lists/*
+COPY docker/requirements.baselines.txt /tmp/requirements.txt
+RUN python -m pip install --no-cache-dir pip==24.3.1
+RUN --mount=type=cache,target=/root/.cache/pip python -m pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 && python -m pip install -r /tmp/requirements.txt && python -m pip check
+ENV HOME=/tmp USER=ae LOGNAME=ae PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+COPY baselines /opt/baselines
+COPY ae/baseline_smoke.py /opt/baselines/baseline_smoke.py
+RUN python -m pip freeze > /opt/baselines/installed-packages.txt
+WORKDIR /opt/baselines
+CMD ["python", "baseline_smoke.py", "all"]

@@ -1,0 +1,21 @@
+title = "TIMMResNet50"
+
+[arch]
+divisor = 8
+
+BottleneckResidualBlock.expand_base = "out"
+
+blocks = []
+
+[var.global_vars]
+resolution = [128, 132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176,
+              180, 184, 188, 192, 196, 200, 204, 208, 212, 216, 220, 224]
+
+[var.stage_vars]
+width_mult = [0.65, 0.8, 1.0]
+width_mult_skipped = [1, -3, -2, -1]
+reduce_depth = [-2, -1, 0]
+reduce_depth_skipped = [0, 1, -3, -2, -1]
+
+[var.block_vars]
+BottleneckResidualBlock.expand_ratio = [0.15, 0.2, 0.25]

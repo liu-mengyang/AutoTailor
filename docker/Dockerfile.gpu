@@ -1,0 +1,12 @@
+FROM python:3.13.13-slim-bookworm
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends bash git ca-certificates libgomp1 adb curl unzip cmake ninja-build build-essential && rm -rf /var/lib/apt/lists/*
+COPY docker/requirements.txt /tmp/requirements.txt
+ARG TORCH_INDEX=https://download.pytorch.org/whl/cu128
+RUN python -m pip install --no-cache-dir torch==2.11.0 torchvision==0.26.0 --index-url $TORCH_INDEX && python -m pip install --no-cache-dir -r /tmp/requirements.txt && python -m pip check
+ENV AUTOTAILOR_HOME=/opt/autotailor MODEL_HOME=/assets/models WORKSPACE=/results/workspace PYTHONPATH=/opt/autotailor PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HOME=/tmp
+WORKDIR /opt/autotailor
+COPY . /opt/autotailor
+RUN ln -s /assets/models /opt/autotailor/models
+RUN python -m pip freeze > /opt/autotailor/docker/installed-packages.txt
+CMD ["bash"]

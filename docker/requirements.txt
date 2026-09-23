@@ -1,0 +1,16 @@
+# Direct dependencies observed in the working GPU environment, 2026-09-23.
+# Torch/torchvision are installed separately from their CPU/cu128 indexes.
+numpy==2.4.6
+onnx==1.21.0
+onnx-graphsurgeon==0.6.1
+onnxruntime==1.26.0
+timm==1.0.27
+dill==0.4.1
+loguru==0.7.3
+toml==0.10.2
+tqdm==4.67.3
+pillow==12.2.0
+matplotlib==3.10.9
+pandas==3.0.3
+pure-python-adb==0.3.0.dev0
+pytest==9.1.1

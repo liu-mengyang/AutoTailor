@@ -1,0 +1,95 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+import re
+import numpy as np
+
+from .tflite_profiler import TFLiteProfiler
+from .tflite_backend import TFLiteBackend
+from ..interface import BaseParser
+from ..utils import Latency, ProfiledResults
+
+
+class TFLiteCPULatencyParser(BaseParser):
+    def __init__(self):
+        self.nodes = []
+        self.total_latency = Latency()
+
+    def parse(self, content):
+        if isinstance(content, str):
+            self.nodes = self._parse_nodes(content)
+            self.total_latency = self._parse_total_latency(content)
+        elif isinstance(content, list):
+            total_latency_lst = []
+            for message in content:
+                self.nodes = self._parse_nodes(message)
+                total_latency_lst.append(self._parse_total_latency(message))
+            avg_lst = []
+            std_lst = []
+            for latency in total_latency_lst:
+                avg_lst.append(float(str(latency).split(' +- ')[0]))
+                std_lst.append(float(str(latency).split(' +- ')[1]))
+            self.total_latency = Latency(avg=sum(avg_lst)/len(avg_lst), std=np.std(avg_lst))
+        return self
+
+    def _parse_nodes(self, content):
+        start_regex = r'[= ]*Run Order[= ]*'
+        end_regex = r'[= ]*Top by Computation Time[= ]*'
+        node_regex = r'\s*(\w+)\s*[\d.e-]+\s*[\d.e-]+\s*([\d.e-]+)\s*[\d.e-]+%\s*[\d.e-]+%\s*[\d.e-]+\s*1\s*(\S*)'
+        flag = False
+
+        nodes = []
+        for line in content.splitlines():
+            if flag:
+                match = re.search(node_regex, line)
+                if match:
+                    nodes.append({
+                        'node_type': match[1],
+                        'avg': float(match[2]),
+                        'name': match[3],
+                    })
+            if re.search(start_regex, line):
+                flag = True
+            if re.search(end_regex, line):
+                flag = False
+
+        # import pandas as pd
+        # df = pd.DataFrame(columns=('node_type', 'avg', 'name'))
+        # for node in nodes:
+        #     # print({'node_type': node['node_type'], 'avg': node['avg'], 'name': node['name']})
+        #     df.loc[len(df)] = [node['node_type'], node['avg'], node['name']]
+
+        return nodes
+
+    def _parse_total_latency(self, content):
+        total_latency_regex = r'Timings \(microseconds\): count=[\d.e-]+ first=[\d.e-]+ curr=[\d.e-]+ min=[\d.e-]+ max=[\d.e-]+ avg=([\d.\+e-]+) std=([\d.\+e-]+)'
+        too_small_regex = r'Timings \(microseconds\): count=[\d.e-]+ curr=[\d.e-]'
+        
+        total_latency = Latency()
+        match = re.search(total_latency_regex, content, re.MULTILINE)
+        small_kernel_match = re.search(too_small_regex, content, re.MULTILINE)
+        if match:
+            # convert microseconds to millisecond
+            total_latency = Latency(float(match[1]) / 1000, float(match[2]) / 1000)
+        elif small_kernel_match:
+            total_latency = Latency(0.0, 0.0)
+        else:
+            raise ValueError('Parsing error when profiling')
+        return total_latency
+    
+    @property
+    def latency(self):
+        return self.total_latency
+
+    @property
+    def results(self):
+        results = ProfiledResults({'latency': self.latency})
+        return results
+
+
+class TFLiteCPUProfiler(TFLiteProfiler):
+    use_gpu = False
+
+
+class TFLiteCPUBackend(TFLiteBackend):
+    parser_class = TFLiteCPULatencyParser
+    profiler_class = TFLiteCPUProfiler

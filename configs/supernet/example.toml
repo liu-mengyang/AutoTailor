@@ -1,0 +1,13 @@
+title = "Example"
+
+[arch]
+blocks = ["FFNBlock"]
+
+[var.global_vars]
+resolution = [128, 144, 160, 176, 192, 208, 224]
+
+[var.stage_vars]
+reduce_depth = [-11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0]
+
+[var.block_vars]
+FFNBlock.expand_ratio = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]

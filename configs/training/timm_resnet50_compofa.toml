@@ -1,0 +1,24 @@
+title = "TIMMResnet50"
+
+[comp.phase0]
+dynamic_batch_size = 4
+epochs = 25
+opt = "adamw"
+lr = 1e-4
+warmup_epochs = 0
+warmup_lr = -1
+enable_dimensions = ["reduce_depth", "expand_ratio", "width_mult"]
+enable_index = [0, 1, 2]
+sampling_strategy = "compound"
+
+[comp.phase1]
+dynamic_batch_size = 4
+epochs = 120
+opt = "adamw"
+lr = 1e-4
+warmup_epochs = 5
+warmup_lr = -1
+enable_dimensions = ["reduce_depth", "expand_ratio", "width_mult"]
+enable_index = [0, 1, 2]
+sampling_strategy = "compound"
+

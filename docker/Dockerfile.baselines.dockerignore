@@ -1,0 +1,10 @@
+**
+!docker/
+!docker/Dockerfile.baselines
+!docker/requirements.baselines.txt
+!baselines/
+!baselines/**
+!ae/
+!ae/baseline_smoke.py
+**/__pycache__
+**/*.pyc

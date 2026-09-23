@@ -1,0 +1,24 @@
+title = "OFAMobileNetV310"
+
+[arch]
+divisor = 8
+
+BottleneckResidualBlock.expand_base = "in"
+BottleneckBlock.expand_base = "in"
+
+blocks = ["BottleneckBlock"]
+
+[var.global_vars]
+resolution = [128, 132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176,
+              180, 184, 188, 192, 196, 200, 204, 208, 212, 216, 220, 224]
+
+[var.stage_vars]
+reduce_depth = [0, -1, -2]
+reduce_depth_skipped = [0, -5, -4, -3, -2, -1]
+
+[var.block_vars]
+BottleneckResidualBlock.kernel_size = [3, 5, 7]
+BottleneckResidualBlock.expand_ratio = [3, 4, 6]
+
+BottleneckBlock.kernel_size = [3, 5, 7]
+BottleneckBlock.expand_ratio = [3, 4, 6]

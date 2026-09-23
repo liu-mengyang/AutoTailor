@@ -1,0 +1,28 @@
+title = "ElasticViT"
+
+[arch]
+divisor = 8
+
+blocks = ["AttentionBlock", "FFNBlock", "TransformerBlock", "LinearMatMulOp"]
+
+BottleneckResidualBlock.expand_base = "in"
+
+[var.global_vars]
+resolution = [256]
+
+[var.stage_vars]
+reduce_depth = [0, -1, -2, -3, -4, -5]
+reduce_depth_skipped = [0, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19,
+                        21, 22, 23, 24, 25, 26]
+BottleneckResidualBlock_skipped = [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+                                   15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+                                   26]
+
+[var.block_vars]
+ConvResidualBlock.kernel_size = [5]
+
+BottleneckResidualBlock.kernel_size = [5]
+BottleneckResidualBlock.expand_ratio = [3, 4, 5, 6]
+
+TransformerBlock.v_scale = [4]
+TransformerBlock.expand_ratio = [2, 3, 4, 5]

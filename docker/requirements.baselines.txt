@@ -1,0 +1,10 @@
+# Classification/source smoke stack; isolated from AutoTailor's Python 3.13 stack.
+numpy==1.23.5
+timm==0.5.4
+torch-pruning==1.1.9
+scipy==1.10.1
+pillow==9.5.0
+PyYAML==6.0.2
+loguru==0.7.3
+tqdm==4.67.1
+pynvml==11.5.3

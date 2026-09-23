@@ -1,0 +1,18 @@
+title = "ViT"
+
+[arch]
+divisor = 8
+
+blocks = ["AttentionBlock", "FFNBlock", "TransformerBlock", "LinearMatMulOp"]
+
+[var.global_vars]
+# resolution = [128, 144, 160, 176, 192, 208, 224]
+resolution = [224]
+
+[var.stage_vars]
+reduce_depth = [-8, -7, -6, -5, -4, -3, -2, -1, 0]
+reduce_depth_skipped = [0, 1, 2, 3, -2, -1]
+
+[var.block_vars]
+# TransformerBlock.head_ratio = [0.5, 0.75, 1]
+TransformerBlock.expand_ratio = [2, 3, 4]
